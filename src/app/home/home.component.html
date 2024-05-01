@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="d-flex justify-content-between">
+    <div class="d-flex flex-column align-items-center">
+      <h2 class="mb-2">To Do</h2>
+      <ng-container *ngFor="let todo of todos">
+        <ng-template [ngIf]="todo.status === 'TO DO'">
+          <mat-card class="mb-3 bg-warning">
+            <mat-card-header>
+              <mat-card-title>{{ todo.name }}</mat-card-title>
+              <mat-card-subtitle>{{ todo.description }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content class="d-flex mt-2 justify-content-around">
+              <img
+                style="width: 30px"
+                src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg"
+                alt=""
+                class="rounded-circle"
+              />
+              <img
+                style="width: 30px"
+                src="https://cdn.pixabay.com/photo/2024/02/26/19/39/monochrome-image-8598798_1280.jpg"
+                alt=""
+                class="rounded-circle"
+              />
+            </mat-card-content>
+          </mat-card>
+        </ng-template>
+      </ng-container>
+    </div>
+    <div class="d-flex flex-column">
+      <h2>Doing</h2>
+      <ng-container *ngFor="let todo of todos">
+        <ng-template [ngIf]="todo.status === 'DOING'">
+          <p>{{ todo.name }}</p>
+        </ng-template>
+      </ng-container>
+    </div>
+    <div class="d-flex flex-column">
+      <h2>Done</h2>
+      <ng-container *ngFor="let todo of todos">
+        <ng-template [ngIf]="todo.status === 'DONE'">
+          <p>{{ todo.name }}</p>
+        </ng-template>
+      </ng-container>
+    </div>
+  </div>
+</div>
